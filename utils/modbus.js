@@ -9,10 +9,10 @@ async function connectTCP() {
     await client.connectTCP("192.168.50.20", { port: 502 });
     client.setID(RELAY_ID);
     connected = true;
-    console.log("✅ Connected to Modbus TCP relay");
+    console.log("Connected to Modbus TCP relay");
   } catch (err) {
     connected = false;
-    console.error("❌ Failed to connect:", err.message);
+    console.error("Failed to connect:", err.message);
     setTimeout(connectTCP, 5000);
   }
 }

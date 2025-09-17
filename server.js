@@ -25,7 +25,9 @@ app.use("/api", ioRoutes);
 app.use("/api", analogRoutes);
 app.use("/api", ltgRoutes);
 
-app.listen(port, () => console.log(`Server running at http://localhost:${port}`));
+app.listen(port, () =>
+  console.log(`Server running at http://localhost:${port}`)
+);
 
 // const express = require("express");
 // const cors = require("cors")
@@ -295,7 +297,6 @@ app.listen(port, () => console.log(`Server running at http://localhost:${port}`)
 //     });
 //   }
 // });
-
 
 // // ------------------- Analog Measurements ------------------- //
 
