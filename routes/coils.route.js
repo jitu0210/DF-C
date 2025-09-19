@@ -1,6 +1,10 @@
 import { Router } from "express";
 import { ensureConnected } from "../middlewares/ensureConnected.js";
-import { readCoil, writeCoil, writeCoils } from "../controllers/coils.controller.js";
+import {
+  readCoil,
+  writeCoil,
+  writeCoils,
+} from "../controllers/coils.controller.js";
 
 const router = Router();
 

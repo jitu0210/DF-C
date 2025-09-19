@@ -6,7 +6,7 @@ export async function readCoil(req, res) {
     let addr = parseInt(req.params.addr);
 
     if (req.query.hex === "true") {
-      addr = parseInt(req.params.addr, 16); 
+      addr = parseInt(req.params.addr, 16);
     }
 
     await ensureConnection();
@@ -43,7 +43,9 @@ export async function writeCoils(req, res) {
     let start = parseInt(req.params.start);
     if (req.query.hex === "true") start = parseInt(req.params.start, 16);
 
-    const values = (req.query.values || "").split(",").map((v) => v.trim() === "1");
+    const values = (req.query.values || "")
+      .split(",")
+      .map((v) => v.trim() === "1");
 
     await ensureConnection();
     await client.writeCoils(start, values);

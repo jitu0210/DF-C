@@ -28,7 +28,11 @@ function startStream(res, addr, label, unit, scale = 1) {
   res.on("close", () => clearInterval(interval));
 }
 
-export const streamVoltage = (req, res) => startStream(res, 0x4001, "Voltage", "V", 0.1);
-export const streamCurrent = (req, res) => startStream(res, 0x0003, "Current", "A", 0.1);
-export const streamFrequency = (req, res) => startStream(res, 0x0006, "Frequency", "Hz", 0.01);
-export const streamPhaseDiff = (req, res) => startStream(res, 0x0007, "Phase Difference", "°", 0.1);
+export const streamVoltage = (req, res) =>
+  startStream(res, 0x4001, "Voltage", "V", 0.1);
+export const streamCurrent = (req, res) =>
+  startStream(res, 0x0003, "Current", "A", 0.1);
+export const streamFrequency = (req, res) =>
+  startStream(res, 0x0006, "Frequency", "Hz", 0.01);
+export const streamPhaseDiff = (req, res) =>
+  startStream(res, 0x0007, "Phase Difference", "°", 0.1);

@@ -1,6 +1,11 @@
 import { Router } from "express";
 import { ensureConnected } from "../middlewares/ensureConnected.js";
-import { streamVoltage, streamCurrent, streamFrequency, streamPhaseDiff } from "../controllers/analog.controller.js";
+import {
+  streamVoltage,
+  streamCurrent,
+  streamFrequency,
+  streamPhaseDiff,
+} from "../controllers/analog.controller.js";
 
 const router = Router();
 

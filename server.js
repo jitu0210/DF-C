@@ -2,12 +2,13 @@ import express from "express";
 import cors from "cors";
 import { connectTCP } from "./utils/modbus.js";
 
-import coilsRoutes from "./routes/coils.route.js";
-import statusRoutes from "./routes/status.route.js";
-import resetRoutes from "./routes/reset.route.js";
-import ioRoutes from "./routes/io.route.js";
 import analogRoutes from "./routes/analog.route.js";
-import ltgRoutes from "./routes/lt.route.js";
+import authRoutes from "./routes/auth.route.js"
+import coilsRoutes from "./routes/coils.route.js";
+import ioRoutes from "./routes/io.route.js";
+import ltRoutes from "./routes/lt.route.js";
+import resetRoutes from "./routes/reset.route.js";
+import statusRoutes from "./routes/status.route.js";
 
 const app = express();
 const port = 8000;
@@ -18,15 +19,16 @@ app.use(cors());
 // modbus connection
 connectTCP();
 
-app.use("/api", coilsRoutes);
-app.use("/api", statusRoutes);
-app.use("/api", resetRoutes);
-app.use("/api", ioRoutes);
 app.use("/api", analogRoutes);
-app.use("/api", ltgRoutes);
+app.use("/api", authRoutes);
+app.use("/api", coilsRoutes);
+app.use("/api", ioRoutes);
+app.use("/api", ltRoutes);
+app.use("/api", resetRoutes);
+app.use("/api", statusRoutes);
 
 app.listen(port, () =>
-  console.log(`Server running at http://localhost:${port}`)
+  console.log(`Server running at port ${port}`)
 );
 
 // const express = require("express");
